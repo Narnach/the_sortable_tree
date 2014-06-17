@@ -37,6 +37,8 @@ Awesome nested set, Nested set, Ruby, Rails, Nested set view helper, Sortable ne
 
 ```ruby
 gem 'awesome_nested_set' # or any similar gem (gem 'nested_set')
+#gem 'ancestry'      # alternatively, you can use the ancestry gem
+#gem 'acts_as_list'  # plus acts_as_list for sorting
 gem "the_sortable_tree", "~> 2.5.0"
 ```
 
@@ -96,9 +98,22 @@ end
 
 ```ruby
 class Page < ActiveRecord::Base
+  acts_as_nested_set
   include TheSortableTree::Scopes
   
   # any code here
+end
+```
+
+Alternatively you can use `ancestry` instead of a nested set, optionally
+combined with `acts_as_list` for sorting. Please make sure to load these
+*before* including `TheSortableTree::Scopes`.
+
+```ruby
+class Page < ActiveRecord::Base
+  has_ancestry
+  acts_as_list scope: [:ancestry]
+  include TheSortableTree::Scopes
 end
 ```
 
