@@ -2,7 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/the_sortable_tree.png)](http://badge.fury.io/rb/the_sortable_tree) [![Code Climate](https://codeclimate.com/github/the-teacher/the_sortable_tree.png)](https://codeclimate.com/github/the-teacher/the_sortable_tree)
 
-> tested with rails 4.1.0rc2 + haml 4
+- Originally tested with rails 4.1.0rc2 + haml 4
+- Production tested with Rails 5.2.x
+- Updated for Rails 6.x compatibility
 
 Nested Set + Drag&Drop GUI. Very fast! Best render helper! **2000 nodes/sec**. Ready for rails 4 ([RubyGems](http://rubygems.org/gems/the_sortable_tree))
 
