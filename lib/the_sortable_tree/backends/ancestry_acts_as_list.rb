@@ -14,7 +14,7 @@ module TheSortableTree
           def move_to_child_of(parent)
             transaction do
               remove_from_list
-              self.update_attributes! parent: parent
+              self.update! parent: parent
               add_to_list_bottom
               save!
             end
@@ -24,7 +24,7 @@ module TheSortableTree
             transaction do
               remove_from_list
               other.reload # things may have changed in this list
-              self.update_attributes! parent_id: other.parent_id
+              self.update! parent_id: other.parent_id
               new_position = other.position
               increment_positions_on_lower_items(new_position)
               other.reload
@@ -36,7 +36,7 @@ module TheSortableTree
             transaction do
               remove_from_list
               other.reload # things may have changed in this list
-              self.update_attributes! parent_id: other.parent_id
+              self.update! parent_id: other.parent_id
               if new_position = other.lower_item.try(:position)
                 increment_positions_on_lower_items(new_position)
                 self.update_attribute :position, new_position
